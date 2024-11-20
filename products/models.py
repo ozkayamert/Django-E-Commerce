@@ -61,6 +61,7 @@ class Products(models.Model):
     image = models.ImageField(upload_to="productimages",blank=True,null=True)
     date = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField(Tags,blank=True)
+    home = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = 'Products'
