@@ -19,7 +19,7 @@
                         {{product.price}} $
                         {% endif %}
                       </p>
-                      <a href="#" class="btn btn-success" style="width: 100%;">Buy now</a>
+                      <a href="{% url 'product_detail' product.slug %}" class="btn btn-success" style="width: 100%;">Buy now</a>
                     </div>
                   </div>
             </div>
