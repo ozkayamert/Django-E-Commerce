@@ -16,7 +16,7 @@ class BrandsAdmin(admin.ModelAdmin):
 
 admin.site.register(Brands,BrandsAdmin)
 
-class InlineVariations(admin.TabularInline):
+class InlineVariations(admin.TabularInline): #StackedInline
     model = Variations
     extra = 1
 

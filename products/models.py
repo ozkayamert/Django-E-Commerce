@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 class Categories(models.Model):
     name = models.CharField(max_length=155)
@@ -69,6 +70,12 @@ class Products(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+            super(Products,self).save(*args,**kwargs)
+        return self.slug
     
 
 class Variations(models.Model):
