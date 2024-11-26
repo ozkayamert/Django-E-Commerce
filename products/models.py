@@ -5,6 +5,7 @@ from django.utils.text import slugify
 class Categories(models.Model):
     name = models.CharField(max_length=155)
     parent_category = models.ForeignKey('self', on_delete=models.CASCADE, blank= True, null=True)
+    description = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
     seo_title = models.CharField(max_length=155, blank=True, null=True)
     seo_description = models.TextField(blank=True, null=True)

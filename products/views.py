@@ -15,3 +15,11 @@ def product_detail(request, slug):
     return render(request, "product.html", {
         "product": product
     })
+
+def category_detail(request,slug):
+    category = get_object_or_404(Categories, slug=slug)
+    products = Products.objects.filter(category=category)
+    return render(request, "category.html", {
+        "category": category,
+        "products": products
+    })
