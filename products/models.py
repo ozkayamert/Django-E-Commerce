@@ -10,6 +10,7 @@ class Categories(models.Model):
     seo_title = models.CharField(max_length=155, blank=True, null=True)
     seo_description = models.TextField(blank=True, null=True)
     slug = models.SlugField(max_length=155, unique=True, null=True, blank=True)
+    is_active_menu = models.BooleanField(default=True)
 
     class Meta:
         verbose_name_plural = "Categories"
