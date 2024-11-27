@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}{{category.name}}{% endblock %}
 
@@ -16,21 +17,22 @@
         <div class="row">
           {% for product in products %}
             <div class="col-md-3 col-6 mt-3">
-                <div class="card">
-                    <img src="{{product.image.url}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{{product.name}}</h5>
-                      <p class="card-text fs-5">
-                        {% if product.discount_price %}
-                        {{product.discount_price}} $ 
-                        <del class="text-secondary fs-6">{{product.price}} $</del>
-                        {% else %}
-                        {{product.price}} $
-                        {% endif %}
-                      </p>
-                      <a href="{% url 'product_detail' product.slug %}" class="btn btn-success" style="width: 100%;">Buy now</a>
-                    </div>
-                  </div>
+              <div class="card">
+                <img src="{% if product.image %}{{product.image.url}}{% else %}{% static 'product-placeholder.jpg' %}{% endif %}}" class="card-img-top product-card-img" alt="">
+                <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title product-card-title">{{product.name}}</h5>
+                  <p class="card-text fs-5">
+                    {% if product.discount_price %}
+                    {{product.discount_price}} $ 
+                    <del class="text-secondary fs-6">{{product.price}} $</del>
+                    {% else %}
+                    {{product.price}} $
+                    {% endif %}
+                  </p>
+                  <a href="{% url 'product_detail' product.slug %}" class="btn btn-success" style="width: 100%;">Buy now</a>
+                </div>
+              </div>
             </div>
           {% endfor %}
         </div>

@@ -76,7 +76,7 @@ class Products(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
-            super(Products,self).save(*args,**kwargs)
+        super(Products,self).save(*args,**kwargs)
         return self.slug
     
 

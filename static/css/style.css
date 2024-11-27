@@ -1,0 +1,12 @@
+.product-card-img{
+    width: 100px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-card-title{
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
